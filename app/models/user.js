@@ -41,8 +41,10 @@ var UserSchema = new mongoose.Schema({
                 required : true 
             }
         }
-    ]
-});
+    ],
+},
+{ usePushEach: true }
+);
 
 UserSchema.statics.findByCredencials = function(email,password){
     var User = this;

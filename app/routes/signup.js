@@ -29,6 +29,10 @@ router.post('/signup/addUser', (req, res) => {
     }).then((token)=>{
         req.session.jwtToken = token;
         res.redirect('/home');
+    }, (e)=>{
+        if(e){
+            console.log(e);
+        }
     }).catch((e) => {
         if (e.code === 11000) {
             res.render('signup', {

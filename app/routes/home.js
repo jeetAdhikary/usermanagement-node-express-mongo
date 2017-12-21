@@ -13,7 +13,7 @@ router.get('/home', authenticate, (req, res) => {
 });
 
 router.post('/logout', authenticate, (req,res)=>{
-    req.user.removeToken(req.token).then(()=>{
+    req.user.removeToken(req.session.jwtToken).then(()=>{
         req.session.destroy();
         res.redirect('/');
     })
